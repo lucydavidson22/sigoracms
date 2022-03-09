@@ -1,0 +1,26 @@
+<div *ngIf="contact?.name" class="container"> <!--*ngFor="let contactDeets of contact"> -->
+    <div class="panel panel-default">
+        <div class="panel-heading" >
+            <h3><b> {{ contact?.name }}</b></h3>
+            <div class="pull-left">
+                <img
+                    [src] = "contact.imageUrl"
+                    alt="{{ contact?.name }}"
+                    class="img-responsive"
+                    style="max-height:50px;">
+            </div>
+            <div class="pull-right">
+                <a [routerLink]="['edit']" class="btn btn-primary">Edit</a>
+                <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="pull-left">
+                <p>Email: {{ contact?.email }}</p>
+                <p>Phone: {{ contact?.phone }}</p>
+            </div>
+            <span class="pull-right">
+            </span>
+        </div>
+    </div>
+</div>

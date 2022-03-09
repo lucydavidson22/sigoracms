@@ -1,0 +1,24 @@
+h3{
+    display: inline-block;
+    margin: 0;
+    margin: 5px;
+}
+
+.panel{
+    max-width: 450px;
+    /* margin: 30px; */
+}
+
+.panel-heading{
+    min-height: 50px;
+    display: inline-block;
+    /* margin: 5px; */
+    min-width: 450px;
+}
+
+.btn{
+    margin-left: 5px;
+    margin-right: 5px;
+    height:auto;
+    display:inline-block;
+}

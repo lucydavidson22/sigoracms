@@ -11,11 +11,11 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-edit.component.css']
 })
 export class ContactEditComponent implements OnInit {
-  originalContact: Contact;
-  contact: Contact;
+  originalContact!: Contact;
+  contact!: Contact;
   groupContacts: Contact[] = [];
   editMode: boolean = false;
-  id: string;
+  id!: string;
 
   constructor(private contactService: ContactService,
               private router: Router,
@@ -56,7 +56,7 @@ export class ContactEditComponent implements OnInit {
   onSubmit(form: NgForm){
     const value = form.value;
     console.log('value', value)
-    const newContact = new Contact("0", value.name, value.email, value.phone, value.imageUrl, this.groupContacts);
+    const newContact = new Contact("0", value.name, value.email,value.dateclosed,  value.phone, value.imageUrl, this.groupContacts);
 
     console.log('some new contact', newContact)
     if(this.editMode){

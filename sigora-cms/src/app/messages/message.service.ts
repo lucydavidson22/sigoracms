@@ -9,7 +9,7 @@ import { MOCKMESSAGES } from './MOCKMESSAGES';
 export class MessageService {
   messagesChanged = new EventEmitter<Message[]>();
   messages: Message[] = [];
-  maxMessageId: number;
+  maxMessageId!: number;
 
   constructor(private http: HttpClient) {
     this.messages = MOCKMESSAGES;

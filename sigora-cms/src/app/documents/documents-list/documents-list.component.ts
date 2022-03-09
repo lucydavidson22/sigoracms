@@ -10,7 +10,7 @@ import { DocumentService } from '../document.service';
 })
 export class DocumentsListComponent implements OnInit, OnDestroy {
   documents: Document[] = [];
-  private subscription: Subscription;
+  private subscription!: Subscription;
 
   constructor(private documentService: DocumentService,
               ) { }

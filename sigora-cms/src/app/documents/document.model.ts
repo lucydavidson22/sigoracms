@@ -4,6 +4,7 @@ export class Document{
         public name:string,
         public description:string,
         public url:string,
+        public knocksAnswer:number
         // public children: string
         ){}
 }

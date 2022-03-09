@@ -11,12 +11,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./document-edit.component.css']
 })
 export class DocumentEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f') docForm: NgForm;
-  subscription: Subscription;
-  originalDocument: Document;
-  document: Document;
+  @ViewChild('f') docForm!: NgForm;
+  subscription!: Subscription;
+  originalDocument!: Document;
+  document!: Document;
   editMode: boolean = false;
-  id: string;
+  id!: string;
+  knocksAnswer!: number;
 
   constructor(private documentService: DocumentService,
               private router: Router,
@@ -46,7 +47,7 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
   onSubmit(form: NgForm){
     const value = form.value;
     console.log(value.name, value.id);
-    const newDocument = new Document('0', value.name, value.description, value.url);
+    const newDocument = new Document('0', value.name, value.description, value.url, value.knocksAnswer);
                                     //could an error be here because it expects a value.id
     if(this.editMode){
       this.documentService.updateDocument(this.originalDocument, newDocument)
@@ -54,7 +55,12 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
       this.documentService.addDocument(newDocument)
     }
     this.router.navigate(['documents']);
+    this.knocksAnswer = +this.document.description / +this.document.url;
   }
+
+  // calculate(){
+  //   this.document.knocksAnswer = +this.document.description / +this.document.url;
+  // }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

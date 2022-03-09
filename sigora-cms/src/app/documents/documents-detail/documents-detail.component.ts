@@ -47,4 +47,9 @@ export class DocumentsDetailComponent implements OnInit {
     this.router.navigate(['documents']);
   }
 
+  // calculate(){
+  //   this.document.knocksAnswer = +this.document.description / +this.document.url;
+  // }
+
+
 }

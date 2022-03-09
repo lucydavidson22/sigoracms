@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Document } from './document.model';
-import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
+// import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -12,7 +12,7 @@ export class DocumentService {
   documentSelectedEvent = new EventEmitter<Document>();
   documentChangedEvent = new EventEmitter<Document[]>();
   private documents: Document[] = [];
-  maxDocumentId: number;
+  maxDocumentId!: number;
 
   constructor(private http: HttpClient) {
     // this.documents = MOCKDOCUMENTS;
@@ -25,9 +25,9 @@ export class DocumentService {
    }
 
    getDocumentsHttp(){
-     console.log('documentshttp entered');
+     console.log('documents http entered');
     return this.http
-     .get<Document[]>('https://lucyd-cms-default-rtdb.firebaseio.com/documents.json')
+     .get<Document[]>('https://sigora-datasave-default-rtdb.firebaseio.com/knocking.json')
      .subscribe(
        //success method
        (documents:Document[] = []) => {
@@ -73,7 +73,7 @@ export class DocumentService {
     const documents = JSON.stringify(this.getDocuments())
      this.http
      .put(
-       'https://lucyd-cms-default-rtdb.firebaseio.com/documents.json',
+       'https://sigora-datasave-default-rtdb.firebaseio.com/knocking.json',
      documents,
      {
       headers: new HttpHeaders({'Content-Type': 'application/json'}),

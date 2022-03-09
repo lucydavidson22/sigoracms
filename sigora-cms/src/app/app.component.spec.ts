@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'sigora-cms'`, () => {
+  it(`should have as title 'cms'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('sigora-cms');
+    expect(app.title).toEqual('cms');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('sigora-cms app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('cms app is running!');
   });
 });

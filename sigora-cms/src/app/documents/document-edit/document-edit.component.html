@@ -3,9 +3,10 @@
     <form id="document-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="name">Document Title:</label>
+          <!-- <label for="name">Document Title:</label> -->
+          <label for="name">Data for this Date:</label>
           <input
-            type="text"
+            type="date"
             id="name"
             class="form-control"
             size="120"
@@ -19,9 +20,10 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="description">Document Description:</label>
+          <!-- <label for="description">Document Description:</label> -->
+          <label for="description">Knocks:</label>
           <input
-            type="text"
+            type="number"
             id="description"
             class="form-control"
             size="120"
@@ -34,9 +36,10 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="url">Document URL:</label>
+          <!-- <label for="url">Document URL:</label> -->
+          <label for="url">Answers:</label>
           <input
-            type="text"
+            type="number"
             id="url"
             class="form-control"
             size="150"
@@ -51,7 +54,7 @@
         </div>
       </div>
       <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
-        The Document Title and Document URL are required fields.
+        The Data date and knocks are required fields.
       </div>
       <div class="row">
         <div class="col-xs-12 btn-toolbar">

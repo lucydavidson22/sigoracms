@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Contact } from './contact.model';
-import { MOCKCONTACTS } from './MOCKCONTACTS';
+// import { MOCKCONTACTS } from './MOCKCONTACTS';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -13,7 +13,7 @@ export class ContactService {
   contactChangedEvent = new EventEmitter<Contact[]>();
 
   contacts: Contact[] = [ ];
-  maxContactId: number;
+  maxContactId!: number;
 
   constructor(private http: HttpClient) {
     // this.contacts = MOCKCONTACTS;
@@ -27,7 +27,7 @@ export class ContactService {
 
    getContactsHttp(){
     return this.http
-    .get<Contact[]>('https://sigora-datasave-default-rtdb.firebaseio.com/contacts.json')
+    .get<Contact[]>('https://sigora-datasave-default-rtdb.firebaseio.com/clientnames.json')
     .subscribe(
       //success method
       (contacts:Contact[] = []) => {
@@ -118,7 +118,7 @@ export class ContactService {
     const contacts = JSON.stringify(this.getContacts())
      this.http
      .put(
-       'https://sigora-datasave-default-rtdb.firebaseio.com/contacts.json',
+       'https://sigora-datasave-default-rtdb.firebaseio.com/clientnames.json',
      contacts,
      {
       headers: new HttpHeaders({'Content-Type': 'application/json'}),

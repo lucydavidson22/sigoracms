@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.logo{
+  float: left;
+  padding: 5px;
+  max-width: 150px;
+  max-height: 50px;
+}
+
+/* html{
+  background-color: rgb(0, 0, 0);
+  color: #ffc82c;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  font-family: Avenir Next, sans-serif;
+} */
+
+/* .panel-body, .panel-heading, .list-group-item, .navbar, .navbar-default, .container-fluid, .container, .body{
+  background-color: black;
+  color: white;
+} */

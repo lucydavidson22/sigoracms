@@ -21,13 +21,14 @@ export class DocumentService {
    }
 
    getDocuments(){
+    // this.documents = MOCKDOCUMENTS;
      return this.documents.slice();
    }
 
    getDocumentsHttp(){
      console.log('documents http entered');
     return this.http
-     .get<Document[]>('https://sigora-datasave-default-rtdb.firebaseio.com/knocking.json')
+     .get<Document[]>('https://sigora-stats-default-rtdb.firebaseio.com/knocking.json')
      .subscribe(
        //success method
        (documents:Document[] = []) => {
@@ -73,7 +74,7 @@ export class DocumentService {
     const documents = JSON.stringify(this.getDocuments())
      this.http
      .put(
-       'https://sigora-datasave-default-rtdb.firebaseio.com/knocking.json',
+       'https://sigora-stats-default-rtdb.firebaseio.com/knocking.json',
      documents,
      {
       headers: new HttpHeaders({'Content-Type': 'application/json'}),

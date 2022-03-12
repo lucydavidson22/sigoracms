@@ -34,19 +34,19 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="email">Kilowatts:</label>
+          <label for="kilowatts">Kilowatts:</label>
           <input
             type="text"
-            id="email"
+            id="kilowatts"
             class="form-control required"
             size="120"
             max="255"
-            name="email"
-            [ngModel]=contact?.email
+            name="kilowatts"
+            [ngModel]=contact?.kilowatts
             required
-            #email="ngModel">
+            #kilowatts="ngModel">
             <!-- email> -->
-            <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+            <div class="alert alert-danger" *ngIf="!kilowatts.valid && kilowatts.touched">
               Enter a valid kilowatt number!
             </div>
         </div>
@@ -74,16 +74,16 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="imageUrl">Commission:</label>
+          <label for="commission">Commission:</label>
           <input
             type="text"
-            id="imageUrl"
+            id="commission"
             class="form-control"
             size="150"
             max="255"
-            name="imageUrl"
-            [ngModel]=contact?.imageUrl
-            #imageUrl="ngModel">
+            name="commission"
+            [ngModel]=contact?.commission
+            #commission="ngModel">
         </div>
       </div>
 

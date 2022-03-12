@@ -55,7 +55,7 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
       this.documentService.addDocument(newDocument)
     }
     this.router.navigate(['documents']);
-    this.knocksAnswer = +this.document.description / +this.document.url;
+    // this.knocksAnswer = +this.document.description / +this.document.url;
   }
 
   // calculate(){

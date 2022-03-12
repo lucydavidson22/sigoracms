@@ -22,26 +22,24 @@ export class ContactService {
    }
 
    getContacts():Contact[]{
+    // this.contacts = MOCKCONTACTS;
      return this.contacts.slice();
    }
 
    getContactsHttp(){
     return this.http
-    .get<Contact[]>('https://sigora-datasave-default-rtdb.firebaseio.com/clientnames.json')
+    .get<Contact[]>('https://sigora-stats-default-rtdb.firebaseio.com/clientnames.json')
     .subscribe(
       //success method
       (contacts:Contact[] = []) => {
         this.contacts = contacts;    //Assign the array of documents received to the documents property.
         this.maxContactId = this.getMaxId();  //get the maximum value used for the id property in the document list, assign the value returned to the maxDocumentId
-        contacts.sort((currentElement, nextElement) => {    //Sort the list of documents by name using the sort() JavaScript array method.
-          if(currentElement > nextElement){ return 1; }
-          if(currentElement < nextElement){ return -1; }
+        contacts.sort((a, b) => {    //Sort the list of documents by name using the sort() JavaScript array method.
+          if(a.dateclosed > b.dateclosed){ return -1; }
+          if(a.dateclosed < b.dateclosed){ return 1; }
           else { return 0; }
          });
-           // this.documentChangedEvent.emit(this.documents.slice());   //emit the next document list change event
-          //  let contactsListClone = this.contacts.slice();
-          //  this.contactListChangedEvent.next(contactsListClone);
-           this.contactListChangedEvent.next(this.contacts.slice());
+         this.contactListChangedEvent.next(this.contacts.slice());
       }
       //error method
       ,(error: any)=> {
@@ -79,9 +77,6 @@ export class ContactService {
       return;
    }
    this.contacts.splice(pos, 1);
-    //  this.contactChangedEvent.emit(this.contacts.slice());
-    // let contactsListClone = this.contacts.slice();
-    // this.contactListChangedEvent.next(contactsListClone);
     this.storeContacts();
    }
 
@@ -92,8 +87,6 @@ export class ContactService {
     this.maxContactId++;
     newContact.id= this.maxContactId + "";
     this.contacts.push(newContact);
-    // let contactsListClone = this.contacts.slice();
-    // this.contactListChangedEvent.next(contactsListClone);
     this.storeContacts();
   }
 
@@ -109,8 +102,6 @@ export class ContactService {
     console.log("something here!");
     newContact.id = originalContact.id;
     this.contacts[pos] = newContact;
-    // let contactsListClone = this.contacts.slice();
-    // this.contactListChangedEvent.next(contactsListClone);
     this.storeContacts();
   }
 
@@ -118,7 +109,7 @@ export class ContactService {
     const contacts = JSON.stringify(this.getContacts())
      this.http
      .put(
-       'https://sigora-datasave-default-rtdb.firebaseio.com/clientnames.json',
+       'https://sigora-stats-default-rtdb.firebaseio.com/clientnames.json',
      contacts,
      {
       headers: new HttpHeaders({'Content-Type': 'application/json'}),

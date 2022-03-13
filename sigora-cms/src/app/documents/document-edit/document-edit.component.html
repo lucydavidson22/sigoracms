@@ -3,7 +3,6 @@
     <form id="document-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
-          <!-- <label for="name">Document Title:</label> -->
           <label for="name">Data for this Date:</label>
           <input
             type="date"
@@ -20,39 +19,84 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <!-- <label for="description">Document Description:</label> -->
-          <label for="description">Knocks:</label>
+          <label for="knocks">Knocks:</label>
           <input
             type="number"
-            id="description"
+            id="knocks"
             class="form-control"
             size="120"
             max="255"
-            name="description"
-            [ngModel]=document?.description
-            #description = "ngModel">
+            name="knocks"
+            [ngModel]=document?.knocks
+            required
+            #knocks = "ngModel">
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <!-- <label for="url">Document URL:</label> -->
-          <label for="url">Answers:</label>
+          <label for="answers">Answers:</label>
           <input
             type="number"
-            id="url"
+            id="answers"
             class="form-control"
             size="150"
             max="255"
-            name="url"
-            [ngModel]=document?.url
+            name="answers"
+            [ngModel]=document?.answers
             required
-            #url="ngModel">
-            <div>
-
-            </div>
+            #answers="ngModel">
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="sets">Sets:</label>
+          <input
+            type="number"
+            id="sets"
+            class="form-control"
+            size="150"
+            max="255"
+            name="sets"
+            [ngModel]=document?.sets
+            required
+            #sets="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="sets">Total Time In Hours:</label>
+          <input
+            type="number"
+            id="totalTime"
+            class="form-control"
+            size="150"
+            max="255"
+            name="totalTime"
+            [ngModel]=document?.totalTime
+            required
+            #totalTime="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="sets">Props Run:</label>
+          <input
+            type="number"
+            id="propsRun"
+            class="form-control"
+            size="150"
+            max="255"
+            name="propsRun"
+            [ngModel]=document?.propsRun
+            required
+            #propsRun="ngModel">
+        </div>
+      </div>
+
       <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
         The Data date and knocks are required fields.
       </div>

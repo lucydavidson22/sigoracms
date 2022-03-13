@@ -13,6 +13,10 @@ export class DocumentService {
   documentChangedEvent = new EventEmitter<Document[]>();
   private documents: Document[] = [];
   maxDocumentId!: number;
+  knocksperanswer!: number;
+  knocksperhour!:number;
+  answersperset!: number;
+  setsperhour!: number;
 
   constructor(private http: HttpClient) {
     // this.documents = MOCKDOCUMENTS;
@@ -32,14 +36,13 @@ export class DocumentService {
      .subscribe(
        //success method
        (documents:Document[] = []) => {
-         this.documents = documents;    //Assign the array of documents received to the documents property.
-         this.maxDocumentId = this.getMaxId();  //get the maximum value used for the id property in the document list, assign the value returned to the maxDocumentId
-         documents.sort((a, b) => {    //Sort the list of documents by name using the sort() JavaScript array method.
+         this.documents = documents;
+         this.maxDocumentId = this.getMaxId();
+         documents.sort((a, b) => {
            if(a.name > b.name){ return 1; }
            if(a.name < b.name){ return -1; }
            else { return 0; }
           });
-            // this.documentChangedEvent.emit(this.documents.slice());   //emit the next document list change event
             let documentsListClone = this.documents.slice();
             this.documentListChangedEvent.next(documentsListClone);
        }
@@ -51,6 +54,10 @@ export class DocumentService {
    }
 
    getDocument(id:string){
+    this.getKnocksPerAnswer();
+    this.getKnocksPerHour();
+    this.getAnswersPerSet();
+    this.getSetsPerHour();
     for(let document of this.documents){
       if(id == document.id){
         return document;
@@ -129,5 +136,38 @@ export class DocumentService {
     // this.documentListChangedEvent.next(documentsListClone);
     this.storeDocuments();
   }
+
+  getKnocksPerAnswer():number{
+    this.knocksperanswer = 0;
+    for(let document of this.documents){
+      document.knocksperanswer = document.knocks / document.answers;
+    }
+    return this.knocksperanswer;
+  }
+
+  getKnocksPerHour():number{
+    this.knocksperhour = 0;
+    for(let document of this.documents){
+      document.knocksperhour = document.knocks / document.totalTime;
+    }
+    return this.knocksperhour;
+  }
+
+  getAnswersPerSet():number{
+    this.answersperset = 0;
+    for(let document of this.documents){
+      document.answersperset = document.answers / document.sets;
+    }
+    return this.answersperset;
+  }
+
+  getSetsPerHour():number{
+    this.setsperhour = 0;
+    for(let document of this.documents){
+      document.setsperhour = document.sets / document.totalTime;
+    }
+    return this.setsperhour;
+  }
+
 
 }

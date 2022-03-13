@@ -12,10 +12,6 @@ import { DocumentsComponent } from './documents/documents.component';
 import { DocumentsListComponent } from './documents/documents-list/documents-list.component';
 import { DocumentsItemComponent } from './documents/documents-item/documents-item.component';
 import { DocumentsDetailComponent } from './documents/documents-detail/documents-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { MessageItemComponent } from './messages/message-item/message-item.component';
-import { MessageEditComponent } from './messages/message-edit/message-edit.component';
-import { MessageListComponent } from './messages/message-list/message-list.component';
 import { DropdownDirective } from './dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
@@ -37,10 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
     DocumentsListComponent,
     DocumentsItemComponent,
     DocumentsDetailComponent,
-    MessagesComponent,
-    MessageItemComponent,
-    MessageEditComponent,
-    MessageListComponent,
     DropdownDirective,
     DocumentEditComponent,
     ContactEditComponent,

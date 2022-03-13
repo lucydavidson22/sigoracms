@@ -3,7 +3,7 @@
       <div class="row pad-all">
         <h4 class="title margin-left-right">{{document?.name}}</h4>
         <div class="row pull-right margin-left-right">
-          <a (click)="onView()" class="btn btn-primary">View</a>
+          <!-- <a (click)="onView()" class="btn btn-primary">View</a> -->
           <a [routerLink]="['edit']" class="btn btn-info" >Edit</a>
           <a (click)="onDelete()" class="btn btn-danger">Delete</a>
         </div>
@@ -13,17 +13,44 @@
       <div class="pad-left-right">
         <div class="row">
           <label>Knocks:</label>
-          <span class="label-value"> {{document?.description}}</span>
+          <span class="label-value"> {{document?.knocks}}</span>
         </div>
-        <br>
+        <!-- <br> -->
         <div class="row">
           <label>Answers:</label>
-          <span class="label-value"> {{document?.url}}</span>
+          <span class="label-value"> {{document?.answers}}</span>
         </div>
         <div class="row">
-          <label>knocks per answer:</label>
-          <span class="label-value"> {{ document?.knocksAnswer}} </span>
+          <label>Sets:</label>
+          <span class="label-value"> {{ document?.sets }} </span>
         </div>
+        <div class="row">
+          <label>Total Time in Hours:</label>
+          <span class="label-value"> {{ document?.totalTime }} </span>
+        </div>
+        <div class="row">
+          <label>Props Run:</label>
+          <span class="label-value"> {{ document?.propsRun }} </span>
+        </div>
+        <hr>
+
+        <div class="row">
+          <label>Knocks Per Answer:</label>
+          <span class="label-value"> {{ document?.knocksperanswer | number:'1.0-1' }}</span>
+        </div>
+        <div class="row">
+          <label>Knocks Per Hour:</label>
+          <span class="label-value"> {{ document?.knocksperhour | number:'1.0-0' }}</span>
+        </div>
+        <div class="row">
+          <label>Answers Per Set:</label>
+          <span class="label-value"> {{ document?.answersperset }}</span>
+        </div>
+        <div class="row">
+          <label>Sets Per Hour:</label>
+          <span class="label-value"> {{ document?.setsperhour | number:'1.0-1'  }}</span>
+        </div>
+
       </div>
     </div>
   </div>

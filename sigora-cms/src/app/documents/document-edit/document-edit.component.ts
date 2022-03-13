@@ -47,20 +47,30 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
   onSubmit(form: NgForm){
     const value = form.value;
     console.log(value.name, value.id);
-    const newDocument = new Document('0', value.name, value.description, value.url, value.knocksAnswer);
-                                    //could an error be here because it expects a value.id
+    const newDocument = new Document(
+      '0',
+      value.name,
+      value.knocks,
+      value.answers,
+      value.sets,
+      value.totalTime,
+      value.propsRun,
+      value.knocksperanswer,
+      value.knocksperhour,
+      value.answersperset,
+      value.setsperhour
+      );
     if(this.editMode){
       this.documentService.updateDocument(this.originalDocument, newDocument)
     } else{
       this.documentService.addDocument(newDocument)
     }
     this.router.navigate(['documents']);
-    // this.knocksAnswer = +this.document.description / +this.document.url;
+    // this.documentService.getKnocksPerAnswer();
+    // this.documentService.getKnocksPerHour();
+    // this.documentService.getAnswersPerSet();
+    // this.documentService.getSetsPerHour();
   }
-
-  // calculate(){
-  //   this.document.knocksAnswer = +this.document.description / +this.document.url;
-  // }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

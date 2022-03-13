@@ -13,6 +13,7 @@ export class DocumentsDetailComponent implements OnInit {
   document!: Document;
   id!: string;
   nativeWindow: any;
+  // knocksperanswer!: number;
 
   constructor(private documentService: DocumentService,
               private windowRefService: WindRefService,
@@ -25,7 +26,6 @@ export class DocumentsDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
-        // let parseId = parseInt(this.id);
         this.document = this.documentService.getDocument(this.id);
       }
     )
@@ -35,21 +35,10 @@ export class DocumentsDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
-  onView(){
-    if(this.document.url){
-      this.nativeWindow.open(this.document.url);
-    }
-  }
-
   onDelete(){
     this.documentService.deleteDocument(this.document);
-    // this.router.navigate(['documents'], {relativeTo: this.route});
     this.router.navigate(['documents']);
   }
-
-  // calculate(){
-  //   this.document.knocksAnswer = +this.document.description / +this.document.url;
-  // }
 
 
 }

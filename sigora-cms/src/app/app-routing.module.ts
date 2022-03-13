@@ -6,7 +6,7 @@ import { ContactsComponent } from "./contacts/contacts.component";
 import { DocumentEditComponent } from "./documents/document-edit/document-edit.component";
 import { DocumentsDetailComponent } from "./documents/documents-detail/documents-detail.component";
 import { DocumentsComponent } from "./documents/documents.component";
-import { MessageListComponent } from "./messages/message-list/message-list.component";
+// import { MessageListComponent } from "./messages/message-list/message-list.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/documents', pathMatch: 'full'},
@@ -15,7 +15,6 @@ const appRoutes: Routes = [
     {path: ':id', component: DocumentsDetailComponent},
     {path: ':id/edit', component: DocumentEditComponent}
   ]},
-  {path: 'messages', component: MessageListComponent},
   {path: 'contacts', component: ContactsComponent, children: [
     {path: 'new', component: ContactEditComponent},
     {path: ':id', component: ContactDetailComponent},

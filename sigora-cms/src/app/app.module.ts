@@ -19,6 +19,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
 import { DndModule } from 'ng2-dnd';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { CommissionCalculatorComponent } from './commission-calculator/commission-calculator.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownDirective,
     DocumentEditComponent,
     ContactEditComponent,
-    ContactsFilterPipe
+    ContactsFilterPipe,
+    CommissionCalculatorComponent
   ],
   imports: [
     BrowserModule,

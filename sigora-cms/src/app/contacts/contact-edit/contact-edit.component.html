@@ -55,19 +55,18 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="phone">Cost to Customer:</label>
+          <label for="costtocustomer">Cost to Customer:</label>
           <input
             type="text"
-            id="phone"
+            id="costtocustomer"
             class="form-control invalid"
             size="150"
             max="255"
-            name="phone"
-            [ngModel]=contact?.phone
-            #phone="ngModel">
-            <!-- pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*"> -->
-            <div class="alert alert-danger" *ngIf="!phone.valid && phone.touched">
-              Enter a valid Phone number!
+            name="costtocustomer"
+            [ngModel]=contact?.costtocustomer
+            #costtocustomer="ngModel">
+            <div class="alert alert-danger" *ngIf="!costtocustomer.valid && costtocustomer.touched">
+              Enter a valid Cost number!
             </div>
         </div>
       </div>

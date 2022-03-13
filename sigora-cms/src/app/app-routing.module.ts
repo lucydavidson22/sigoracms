@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { CommissionCalculatorComponent } from "./commission-calculator/commission-calculator.component";
 import { ContactDetailComponent } from "./contacts/contact-detail/contact-detail.component";
 import { ContactEditComponent } from "./contacts/contact-edit/contact-edit.component";
 import { ContactsComponent } from "./contacts/contacts.component";
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
     {path: 'new', component: ContactEditComponent},
     {path: ':id', component: ContactDetailComponent},
     {path: ':id/edit', component: ContactEditComponent}
-  ]}
+  ]},
+  {path: 'commissionCalculator', component: CommissionCalculatorComponent}
 ];
 
 @NgModule({

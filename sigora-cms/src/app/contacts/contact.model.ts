@@ -11,7 +11,7 @@ export class Contact{
         public name:string,
         public kilowatts:string,
         public dateclosed: string,
-        public phone:string,
+        public costtocustomer:string,
         public commission: string,
         public group: any
       ){}

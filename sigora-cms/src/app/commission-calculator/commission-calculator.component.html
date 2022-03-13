@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><b>Commission Calculator</b></h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <form class="main-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+              <label for="sysSize">System Size: </label>
+              <input
+                type="number"
+                id="sysSize"
+                placeholder="System Size"
+                name="numKnocks"
+                class="form-control"
+                [ngModel]= "['sysSize']"
+                #sysSize="ngModel">
+
+              <label for="totalCost">Total Cost: </label>
+              <input
+                type="number"
+                id="totalCost"
+                placeholder="Total Cost"
+                class="form-control"
+                [ngModel]= "['totalCost']"
+                #totalcost="ngModel">
+
+              <label for="dealerFee">Dealer Fee: </label>
+              <input
+                type="number"
+                id="dealerFee"
+                placeholder="Dealer Fee"
+                class="form-control"
+                [ngModel]= "['dealerFee']"
+                #dealerFee="ngModel">
+
+              <label for="adders">Adders: </label>
+              <input
+                type="number"
+                id="adders"
+                placeholder="Adders"
+                class="form-control"
+                [ngModel]= "['adders']"
+                #adders="ngModel"
+                style="margin-bottom: 15px;">
+
+                <div class="col text-center">
+                  <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

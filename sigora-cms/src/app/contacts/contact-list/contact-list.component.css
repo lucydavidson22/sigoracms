@@ -1,6 +1,6 @@
 h3{
     display: inline-block;
-    margin: 0;
+    margin: 2px;
 }
 
 .panel{
@@ -11,4 +11,18 @@ h3{
   min-height: 50px;
   display: inline-block;
   min-width: 450px;
+  /* background-color: black;
+  color: white;
+  padding: 2px;
+  border:rgb(255, 255, 255) 2px solid;
+}
+
+.panel-body{
+  background-color: black;
+  color: white;
+  padding: 16px;
+}
+
+.list-group-item-clearfix{
+  color: white; */
 }

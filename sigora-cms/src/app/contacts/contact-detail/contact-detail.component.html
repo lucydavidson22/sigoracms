@@ -17,7 +17,7 @@
         <div class="panel-body">
             <div class="pull-left">
                 <p>Kilowatts: {{ contact?.kilowatts }}</p>
-                <p>Date Closed: {{ contact?.dateclosed }}</p>
+                <p>Date Closed: {{ contact?.dateclosed | date: 'MM/dd/YYYY'}}</p>
                 <p>Cost to Customer: ${{ contact?.costtocustomer }}</p>
                 <p>Commission: ${{ contact?.commission }}</p>
             </div>

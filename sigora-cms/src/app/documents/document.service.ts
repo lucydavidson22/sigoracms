@@ -19,13 +19,10 @@ export class DocumentService {
   setsperhour!: number;
 
   constructor(private http: HttpClient) {
-    // this.documents = MOCKDOCUMENTS;
-    // this.maxDocumentId = this.getMaxId();
     this.getDocumentsHttp();
    }
 
    getDocuments(){
-    // this.documents = MOCKDOCUMENTS;
      return this.documents.slice();
    }
 
@@ -88,7 +85,6 @@ export class DocumentService {
     }
      )
      .subscribe(()=>{
-        // this.documentChangedEvent.emit(this.documents.slice()); //if something is wrong, try removing this line
         let documentsListClone = this.documents.slice();
         this.documentListChangedEvent.next(documentsListClone);
      })
@@ -103,9 +99,6 @@ export class DocumentService {
        return;
     }
     this.documents.splice(pos, 1);
-    // this.documentChangedEvent.emit(this.documents.slice());
-    // let documentsListClone = this.documents.slice();
-    // this.documentListChangedEvent.next(documentsListClone);
     this.storeDocuments();
  }
 
@@ -117,8 +110,6 @@ export class DocumentService {
     this.maxDocumentId++;
     newDocument.id = this.maxDocumentId + "";
     this.documents.push(newDocument);
-    // let documentsListClone = this.documents.slice();
-    // this.documentListChangedEvent.next(documentsListClone);
     this.storeDocuments();
   }
 
@@ -132,15 +123,17 @@ export class DocumentService {
     }
     newDocument.id = originalDocument.id;
     this.documents[pos] = newDocument;
-    // let documentsListClone = this.documents.slice();
-    // this.documentListChangedEvent.next(documentsListClone);
     this.storeDocuments();
   }
 
   getKnocksPerAnswer():number{
     this.knocksperanswer = 0;
     for(let document of this.documents){
-      document.knocksperanswer = document.knocks / document.answers;
+      if(document.answers > 0){
+        document.knocksperanswer = document.knocks / document.answers;
+        }else{
+          document.knocksperanswer = 0;
+        }
     }
     return this.knocksperanswer;
   }
@@ -148,7 +141,11 @@ export class DocumentService {
   getKnocksPerHour():number{
     this.knocksperhour = 0;
     for(let document of this.documents){
+      if(document.totalTime > 0){
       document.knocksperhour = document.knocks / document.totalTime;
+      }else{
+        document.knocksperhour = 0;
+      }
     }
     return this.knocksperhour;
   }
@@ -156,7 +153,11 @@ export class DocumentService {
   getAnswersPerSet():number{
     this.answersperset = 0;
     for(let document of this.documents){
-      document.answersperset = document.answers / document.sets;
+      if(document.sets > 0){
+        document.answersperset = document.answers / document.sets;
+      }else {
+        document.answersperset = 0;
+      }
     }
     return this.answersperset;
   }
@@ -164,7 +165,11 @@ export class DocumentService {
   getSetsPerHour():number{
     this.setsperhour = 0;
     for(let document of this.documents){
+      if(document.totalTime > 0){
       document.setsperhour = document.sets / document.totalTime;
+      }else {
+        document.setsperhour = 0;
+      }
     }
     return this.setsperhour;
   }

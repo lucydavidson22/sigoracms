@@ -1,12 +1,16 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { CommissionCalculatorComponent } from "./commission-calculator/commission-calculator.component";
+import { CommissionDetailComponent } from "./commission-calculator/commission-detail/commission-detail.component";
 import { ContactDetailComponent } from "./contacts/contact-detail/contact-detail.component";
 import { ContactEditComponent } from "./contacts/contact-edit/contact-edit.component";
 import { ContactsComponent } from "./contacts/contacts.component";
 import { DocumentEditComponent } from "./documents/document-edit/document-edit.component";
 import { DocumentsDetailComponent } from "./documents/documents-detail/documents-detail.component";
 import { DocumentsComponent } from "./documents/documents.component";
+import { GoalsComponent } from "./goals/goals.component";
+import { LoginComponent } from "./login/login.component";
+import { SignupComponent } from "./signup/signup.component";
 // import { MessageListComponent } from "./messages/message-list/message-list.component";
 
 const appRoutes: Routes = [
@@ -21,7 +25,13 @@ const appRoutes: Routes = [
     {path: ':id', component: ContactDetailComponent},
     {path: ':id/edit', component: ContactEditComponent}
   ]},
-  {path: 'commissionCalculator', component: CommissionCalculatorComponent}
+  {path: 'commissionCalculator', component: CommissionCalculatorComponent, children:[
+    {path: 'commission', component: CommissionDetailComponent}
+  ]},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'goals', component: GoalsComponent},
+
 ];
 
 @NgModule({

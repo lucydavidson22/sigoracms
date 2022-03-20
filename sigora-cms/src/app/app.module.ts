@@ -20,6 +20,12 @@ import { DndModule } from 'ng2-dnd';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { CommissionCalculatorComponent } from './commission-calculator/commission-calculator.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CommissionInputComponent } from './commission-calculator/commission-input/commission-input.component';
+import { CommissionDetailComponent } from './commission-calculator/commission-detail/commission-detail.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { GoalsComponent } from './goals/goals.component';
 
 
 @NgModule({
@@ -38,7 +44,12 @@ import { CommissionCalculatorComponent } from './commission-calculator/commissio
     DocumentEditComponent,
     ContactEditComponent,
     ContactsFilterPipe,
-    CommissionCalculatorComponent
+    CommissionCalculatorComponent,
+    CommissionInputComponent,
+    CommissionDetailComponent,
+    LoginComponent,
+    SignupComponent,
+    GoalsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +57,8 @@ import { CommissionCalculatorComponent } from './commission-calculator/commissio
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    DndModule.forRoot()
+    DndModule.forRoot(),
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

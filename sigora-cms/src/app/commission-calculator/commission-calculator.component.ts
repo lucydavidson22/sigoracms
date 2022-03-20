@@ -12,8 +12,4 @@ export class CommissionCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onSubmit(form: NgForm){
-
-  }
 }

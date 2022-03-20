@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { WindRefService } from 'src/app/wind-ref.service';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
 
@@ -12,14 +11,10 @@ import { DocumentService } from '../document.service';
 export class DocumentsDetailComponent implements OnInit {
   document!: Document;
   id!: string;
-  nativeWindow: any;
-  // knocksperanswer!: number;
 
   constructor(private documentService: DocumentService,
-              private windowRefService: WindRefService,
               private route: ActivatedRoute,
               private router: Router) {
-    this.nativeWindow = windowRefService.getNativeWindow();
                }
 
   ngOnInit(): void {

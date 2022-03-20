@@ -2,5 +2,5 @@
   [routerLink]="[document.id]"
   class="list-group-item clearfix documentDiv"
   routerLinkActive="active">
-    {{ document?.name }}
+    {{ document?.name | date: 'MM/dd/YYYY' }}
 </a>

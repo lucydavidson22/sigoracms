@@ -1,7 +1,7 @@
 <div *ngIf="document?.name" class="panel panel-default" xmlns="http://www.w3.org/1999/html">
     <div class="panel-heading">
       <div class="row pad-all">
-        <h4 class="title margin-left-right">{{document?.name}}</h4>
+        <h4 class="title margin-left-right">{{document?.name | date: 'MM/dd/YYYY'}}</h4>
         <div class="row pull-right margin-left-right">
           <!-- <a (click)="onView()" class="btn btn-primary">View</a> -->
           <a [routerLink]="['edit']" class="btn btn-info" >Edit</a>
@@ -15,7 +15,6 @@
           <label>Knocks:</label>
           <span class="label-value"> {{document?.knocks}}</span>
         </div>
-        <!-- <br> -->
         <div class="row">
           <label>Answers:</label>
           <span class="label-value"> {{document?.answers}}</span>

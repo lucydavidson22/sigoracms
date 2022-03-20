@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row pad-left-right">
+        <span class="pull-left title">Goals</span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- <form class="main-form" (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
+          <form class="main-form">
+              <label for="startDate">Start Date: </label>
+              <input
+                type="date"
+                id="startDate"
+                placeholder="StartDate"
+                name="startDate"
+                class="form-control"
+                [ngModel]= "['startDate']"
+                #startDate="ngModel">
+
+              <label for="endDate">End Date: </label>
+              <input
+                type="date"
+                id="endDate"
+                placeholder="End Date"
+                name="endDate"
+                class="form-control"
+                [ngModel]= "['endDate']"
+                #endDate="ngModel">
+
+              <label for="commissGoal">Commission Goal: </label>
+              <input
+                type="number"
+                id="commissGoal"
+                placeholder="Commission Goal in $"
+                name="commissGoal"
+                class="form-control"
+                [ngModel]= "['commissGoal']"
+                #commissGoal="ngModel"
+                >
+
+                <div class="col text-center" style="padding-top: 35px;">
+                  <button
+                    class="btn btn-success"
+                    type="submit">
+                    Submit</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

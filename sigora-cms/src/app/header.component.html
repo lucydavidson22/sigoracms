@@ -1,26 +1,21 @@
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <!-- <a href="#" class="navbar-brand">Sigora Solar</a> -->
-            <a href="#" class="nav-logo"><img src="../../assets/images/sigoraLogo.png" alt="logo" class="logo"></a>
-        </div>
-
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li routerLinkActive="active"><a [routerLink]="['/documents']">Daily Data</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/contacts']">Clients</a></li>
-                <li routerLinkActive="active"><a [routerLink]="['/commissionCalculator']">Commission Calculator</a></li>
-            </ul>
-            <!-- <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown" cmsDropdown>
-                    <a href="#" class="dropdown-toggle" role="button">User <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a [routerLink]="['/login']">Login</a></li>
-                        <li><a [routerLink]="['/other']">Other</a></li><hr style="margin:0">
-                        <li><a [routerLink]="['/logout']">Logout</a></li>
-                    </ul>
-                </li>
-            </ul> -->
-        </div>
-    </div>
+  <div class="container-fluid">
+      <div class="navbar-header">
+              <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+                <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+              </button>
+              <a href="#" class="nav-logo"><img src="../../assets/images/sigoraLogo.png" alt="logo" class="logo"></a>
+      </div>
+      <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+          <ul class="nav navbar-nav">
+              <li routerLinkActive="active"><a [routerLink]="['/documents']">Daily Data</a></li>
+              <li routerLinkActive="active"><a [routerLink]="['/contacts']">Clients</a></li>
+              <li routerLinkActive="active"><a [routerLink]="['/commissionCalculator']">Commission Calculator</a></li>
+              <li routerLinkActive="active"><a [routerLink]="['/goals']">Goals</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a [routerLink]="['/login']">Login</a></li>
+          </ul>
+      </div>
+  </div>
 </nav>

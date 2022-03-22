@@ -9,13 +9,12 @@ import { DocumentEditComponent } from "./documents/document-edit/document-edit.c
 import { DocumentsDetailComponent } from "./documents/documents-detail/documents-detail.component";
 import { DocumentsComponent } from "./documents/documents.component";
 import { GoalsComponent } from "./goals/goals.component";
-import { LoginComponent } from "./login/login.component";
-import { SignupComponent } from "./signup/signup.component";
-// import { MessageListComponent } from "./messages/message-list/message-list.component";
+import { LoginComponent } from "./auth/login/login.component";
+import { SignupComponent } from "./auth/signup/signup.component";
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/documents', pathMatch: 'full'},
-  {path: 'documents', component: DocumentsComponent, children: [
+  {path: '', redirectTo: '/dailydata', pathMatch: 'full'},
+  {path: 'dailydata', component: DocumentsComponent, children: [
     {path: 'new', component: DocumentEditComponent},
     {path: ':id', component: DocumentsDetailComponent},
     {path: ':id/edit', component: DocumentEditComponent}

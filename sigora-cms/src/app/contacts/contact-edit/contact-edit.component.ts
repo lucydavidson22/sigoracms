@@ -81,7 +81,6 @@ export class ContactEditComponent implements OnInit {
     if (invalidGroupContact){
         return;
    }
-   console.log("something wrong", this.groupContacts);
    this.groupContacts.push(selectedContact);
   }
 

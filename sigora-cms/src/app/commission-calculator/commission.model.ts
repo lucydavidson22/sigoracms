@@ -4,6 +4,6 @@ export class Commission{
       public totalCustomerCost:number,
       public dealerFee:number,
       public adders:number,
-      public commissionEarned: number
+      public commissionEarned:number
       ){}
 }

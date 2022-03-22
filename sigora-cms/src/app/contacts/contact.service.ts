@@ -32,9 +32,9 @@ export class ContactService {
     .subscribe(
       //success method
       (contacts:Contact[] = []) => {
-        this.contacts = contacts;    //Assign the array of documents received to the documents property.
-        this.maxContactId = this.getMaxId();  //get the maximum value used for the id property in the document list, assign the value returned to the maxDocumentId
-        contacts.sort((a, b) => {    //Sort the list of documents by name using the sort() JavaScript array method.
+        this.contacts = contacts;
+        this.maxContactId = this.getMaxId();
+        contacts.sort((a, b) => {
           if(a.dateclosed > b.dateclosed){ return -1; }
           if(a.dateclosed < b.dateclosed){ return 1; }
           else { return 0; }

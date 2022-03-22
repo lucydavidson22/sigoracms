@@ -23,9 +23,19 @@ import { CommissionCalculatorComponent } from './commission-calculator/commissio
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommissionInputComponent } from './commission-calculator/commission-input/commission-input.component';
 import { CommissionDetailComponent } from './commission-calculator/commission-detail/commission-detail.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { GoalsComponent } from './goals/goals.component';
+// import { AngularFireModule } from "@angular/fire/compat";
+// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { environment } from "src/environments/environment";
+import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatPaginatorModule } from "@angular/material/paginator";
 
 
 @NgModule({
@@ -58,7 +68,14 @@ import { GoalsComponent } from './goals/goals.component';
     AppRoutingModule,
     ReactiveFormsModule,
     DndModule.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -86,9 +86,9 @@
         </div>
       </div>
 
-      <!-- <div class="row">
+      <div class="row" *ngIf="editMode">
         <div class="col-sm-12 form-group">
-          <label for="groupList">Group Contacts:</label>
+          <label for="groupList">Referral Deals:</label>
           <div class="row" id="groupList" style="min-height: 3rem"
                dnd-droppable [dropZones]="['contactGroup']" (onDropSuccess)="addToGroup($event)">
             <div *ngFor="let contact of groupContacts; let i = index">
@@ -97,11 +97,11 @@
                 <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>
               </div>
             </div>
-            <span class="dragMsg" *ngIf="!groupContacts?.length">Drag contacts in group here</span>
+            <span class="dragMsg" *ngIf="!groupContacts?.length">Drag referral from this client to here</span>
           </div>
 
         </div>
-      </div> -->
+      </div>
 
       <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
         The Name and Kilowatt fields are required.

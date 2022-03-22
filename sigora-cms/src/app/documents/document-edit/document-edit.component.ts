@@ -41,7 +41,7 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
   }
 
   onCancel(){
-    this.router.navigate(['/documents']);
+    this.router.navigate(['/dailydata']);
   }
 
   onSubmit(form: NgForm){
@@ -65,7 +65,7 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
     } else{
       this.documentService.addDocument(newDocument)
     }
-    this.router.navigate(['documents']);
+    this.router.navigate(['dailydata']);
     // this.documentService.getKnocksPerAnswer();
     // this.documentService.getKnocksPerHour();
     // this.documentService.getAnswersPerSet();

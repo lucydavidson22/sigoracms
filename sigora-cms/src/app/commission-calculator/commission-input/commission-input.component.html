@@ -9,25 +9,25 @@
       <div class="row">
         <div class="col-xs-12">
           <form class="main-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
-              <label for="sysSize">System Size: </label>
+              <label for="systemSize">System Size: </label>
               <input
                 type="number"
-                id="sysSize"
+                id="systemSize"
                 placeholder="System Size"
-                name="sysSize"
+                name="systemSize"
                 class="form-control"
-                [ngModel]= "['sysSize']"
-                #sysSize="ngModel">
+                [ngModel]= commission?.systemSize
+                #systemSize="ngModel">
 
-              <label for="totalCost">Total Cost: </label>
+              <label for="totalCustomerCost">Total Cost: </label>
               <input
                 type="number"
-                id="totalCost"
+                id="totalCustomerCost"
                 placeholder="Total Cost"
-                name="totalCost"
+                name="totalCustomerCost"
                 class="form-control"
-                [ngModel]= "['totalCost']"
-                #totalcost="ngModel">
+                [ngModel]= commission?.totalCustomerCost
+                #totalCustomerCost="ngModel">
 
               <label for="dealerFee">Dealer Fee: </label>
               <input
@@ -36,7 +36,7 @@
                 placeholder="Dealer Fee"
                 name="dealerFee"
                 class="form-control"
-                [ngModel]= "['dealerFee']"
+                [ngModel]= commission?.dealerFee
                 #dealerFee="ngModel">
 
               <label for="adders">Adders: </label>
@@ -46,7 +46,7 @@
                 placeholder="Adders"
                 name="adders"
                 class="form-control"
-                [ngModel]= "['adders']"
+                [ngModel]= commission?.adders
                 #adders="ngModel"
                 style="margin-bottom: 15px;">
 

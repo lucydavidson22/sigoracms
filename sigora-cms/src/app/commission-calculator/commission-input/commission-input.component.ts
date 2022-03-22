@@ -10,6 +10,7 @@ import { CommissionService } from '../commission.service';
   styleUrls: ['./commission-input.component.css']
 })
 export class CommissionInputComponent implements OnInit {
+  commission!: Commission;
 
   constructor(private commissionService: CommissionService,
               private router: Router,
@@ -27,7 +28,12 @@ export class CommissionInputComponent implements OnInit {
       value.adders,
       value.commissionEarned
       );
-      this.commissionService.getCommission(commission);
+      console.log(value.systemSize);
+      console.log(value.totalCustomerCost);
+      console.log(value.dealerFee);
+      console.log(value.adders);
+       let x = this.commissionService.getCommission(commission);
+      console.log(x);
       // this.router.navigate(['commission']);
   }
 

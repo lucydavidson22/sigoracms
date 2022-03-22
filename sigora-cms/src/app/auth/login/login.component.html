@@ -1,33 +1,20 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <!-- <form id="document-edit" (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
-    <form id="document-edit">
+    <form id="document-edit" (submit)="onLogin(f)" #f="ngForm">
       <h3>Login Here</h3>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="username">Username:</label>
-          <input
-            type="test"
-            id="username"
-            class="form-control"
-            size="120"
-            max="120"
-            name="username"
-            required>
+          <label for="username">Email:</label>
+          <input type="email" name="email" ngModel #emailInput="ngModel" class="form-control" required email>
+          <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="password">Password:</label>
-          <input
-            type="text"
-            id="knocks"
-            class="form-control"
-            size="120"
-            max="255"
-            name="password"
-            required>
+          <input type="text" name="password" ngModel #passwordInput="ngModel" class="form-control" required>
+          <mat-error *ngIf="!passwordInput.valid">Please enter a valid password.</mat-error>
         </div>
       </div>
 

@@ -10,5 +10,5 @@ h3{
 .panel-heading{
   min-height: 50px;
   display: inline-block;
-  min-width: 550px;
+  max-width: 550px;
 }

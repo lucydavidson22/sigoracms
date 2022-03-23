@@ -1,5 +1,4 @@
 var Sequence = require('../models/sequence');
-// const res = require("express/lib/response");
 
 var maxDocumentId;
 var maxContactId;
@@ -10,10 +9,6 @@ function SequenceGenerator() {
   Sequence.findOne()
     .exec(function(err, sequence) {
       if (err) {
-        // return res.status(500).json({
-        //   title: 'An error occurred',
-        //   error: err
-        // });
         return console.log("An error occurred!");
       }
 
@@ -35,7 +30,7 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       console.log('get the maxId');
       nextId = maxDocumentId;
       break;
-    case 'contacts':
+    case 'customers':
       maxContactId++;
       updateObject = {maxContactId: maxContactId};
       nextId = maxContactId;

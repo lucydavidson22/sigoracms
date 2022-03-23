@@ -36,7 +36,4 @@ export class ContactListComponent implements OnInit {
     this.term = value;
   }
 
-  // onContactSelected(contact: Contact){
-  //   this.contactService.contactSelectedEvent.emit(contact);
-  // }
 }

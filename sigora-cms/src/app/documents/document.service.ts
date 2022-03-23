@@ -71,6 +71,7 @@ export class DocumentService {
           maxId = parseInt(document.id, 10);
         }
     }
+    console.log("Max document Id",maxId);
     return maxId;
   }
 

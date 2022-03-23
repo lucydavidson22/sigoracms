@@ -22,19 +22,20 @@ export class CommissionInputComponent implements OnInit {
   onSubmit(form: NgForm){
   const value = form.value;
     const commission = new Commission(
+      value.id,
       value.systemSize,
       value.totalCustomerCost,
       value.dealerFee,
       value.adders,
       value.commissionEarned
       );
+      console.log(value.id);
       console.log(value.systemSize);
       console.log(value.totalCustomerCost);
       console.log(value.dealerFee);
       console.log(value.adders);
        let x = this.commissionService.getCommission(commission);
       console.log(x);
-      // this.router.navigate(['commission']);
   }
 
 }

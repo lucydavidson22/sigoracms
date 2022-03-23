@@ -1,4 +1,5 @@
 <div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+<!-- <div *ngIf="commission" class="panel panel-default" xmlns="http://www.w3.org/1999/html"> -->
   <div class="panel-heading">
     <div class="row pad-all">
       <h4 class="title margin-left-right">Expected Commission</h4>
@@ -6,17 +7,11 @@
   </div>
   <div class="panel-body">
     <div class="pad-left-right">
-      <div class="row">
-        <label></label>
-        <!-- <span class="label-value">{{ commission?.dealerFee }}</span>
-        <span class="label-value">{{ commission?.commissionEarned }}</span>
-        <span class="label-value">Commission Earned</span> -->
+
         <div class="row">
           <label>Earned:</label>
-          <span class="label-value"> {{commission?.commissionEarned}}</span>
+          <span class="label-value">{{ commission?.commissionEarned }}</span>
         </div>
-      </div>
-
     </div>
   </div>
 </div>

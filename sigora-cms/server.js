@@ -46,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'dist/sigoradb')));
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
-app.use('/contacts', contactsRoutes);
+app.use('/customers', contactsRoutes);
 app.use('/dailydata', documentsRoutes);
 // app.use('/documents', documentsRoutes);
 

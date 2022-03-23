@@ -26,9 +26,6 @@ import { CommissionDetailComponent } from './commission-calculator/commission-de
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { GoalsComponent } from './goals/goals.component';
-// import { AngularFireModule } from "@angular/fire/compat";
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-// import { environment } from "src/environments/environment";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatInputModule } from "@angular/material/input";

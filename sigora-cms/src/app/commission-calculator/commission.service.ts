@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Commission } from './commission.model';
 
@@ -6,6 +6,8 @@ import { Commission } from './commission.model';
   providedIn: 'root'
 })
 export class CommissionService {
+  commissionCalculated = new EventEmitter<Commission>();
+
   commissionEarned!: number;
   constructor() {
 

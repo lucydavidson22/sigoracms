@@ -20,6 +20,7 @@
                 <p>Date Closed: {{ contact?.dateclosed | date: 'MM/dd/YYYY'}}</p>
                 <p>Cost to Customer: ${{ contact?.costtocustomer }}</p>
                 <p>Commission: ${{ contact?.commission }}</p>
+                <p *ngIf="contact?.group.length">Referrals: Click Edit to View</p>
             </div>
             <span class="pull-right">
             </span>

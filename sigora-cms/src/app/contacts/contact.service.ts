@@ -1,6 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Contact } from './contact.model';
-// import { MOCKCONTACTS } from './MOCKCONTACTS';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -16,19 +15,17 @@ export class ContactService {
   maxContactId!: number;
 
   constructor(private http: HttpClient) {
-    // this.contacts = MOCKCONTACTS;
-    // this.maxContactId = this.getMaxId();
     this.getContactsHttp();
    }
 
    getContacts():Contact[]{
-    // this.contacts = MOCKCONTACTS;
      return this.contacts.slice();
    }
 
    getContactsHttp(){
     return this.http
-    .get<Contact[]>('https://sigora-stats-default-rtdb.firebaseio.com/clientnames.json')
+    // .get<Contact[]>('https://sigora-stats-default-rtdb.firebaseio.com/clientnames.json')
+    .get<Contact[]>('http://localhost:3000/customers')
     .subscribe(
       //success method
       (contacts:Contact[] = []) => {
@@ -68,57 +65,77 @@ export class ContactService {
       return maxId
     }
 
-   deleteContact(contact: Contact){
+  addContact(contact: Contact) {
     if (!contact) {
       return;
-   }
-   const pos = this.contacts.indexOf(contact);
-   if (pos < 0) {
-      return;
-   }
-   this.contacts.splice(pos, 1);
-    this.storeContacts();
-   }
-
-  addContact(newContact: Contact){
-    if(!newContact){
-      return;
     }
-    this.maxContactId++;
-    newContact.id= this.maxContactId + "";
-    this.contacts.push(newContact);
-    this.storeContacts();
+    console.log('try to create a customer');
+    // make sure id of the new Contact is empty
+    contact.id = '';
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+    // add to database
+    this.http.post<{ message: string, contact: Contact }>('http://localhost:3000/customers/',
+      contact,
+      { headers: headers })
+      .subscribe(
+        (responseData) => {
+          // add new contact to contacts
+          this.contacts.push(responseData.contact);
+          this.contactListChangedEvent.next(this.contacts.slice());
+          // this.sortAndSend();
+        }
+      );
+      console.log('create customer try 2');
   }
 
-  updateContact(originalContact: Contact, newContact: Contact){
-    console.log('new contact', newContact)
-    if(!(originalContact || newContact)){
+  updateContact(originalContact: Contact, newContact: Contact) {
+    if (!originalContact || !newContact) {
       return;
     }
-    const pos = this.contacts.indexOf(originalContact);
-    if(pos < 0){
+
+    const pos = this.contacts.findIndex(d => d.id === originalContact.id);
+    if (pos < 0) {
       return;
     }
-    console.log("something here!");
+
+    // set the id of the new Contact to the id of the old Contact
     newContact.id = originalContact.id;
-    this.contacts[pos] = newContact;
-    this.storeContacts();
+    // newContact._id = originalContact._id;
+
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+    // update database
+    this.http.put('http://localhost:3000/customers/' + originalContact.id,
+      newContact, { headers: headers })
+      .subscribe(
+        () => {
+          this.contacts[pos] = newContact;
+          this.contactListChangedEvent.next(this.contacts.slice());
+          // this.sortAndSend();
+        }
+      );
   }
 
-  storeContacts(){
-    const contacts = JSON.stringify(this.getContacts())
-     this.http
-     .put(
-       'https://sigora-stats-default-rtdb.firebaseio.com/clientnames.json',
-     contacts,
-     {
-      headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  deleteContact(contact: Contact) {
+    if (!contact) {
+      return;
     }
-     )
-     .subscribe(()=>{
-        // this.documentChangedEvent.emit(this.documents.slice()); //if something is wrong, try removing this line
-        // let documentsListClone = this.documents.slice();
-        this.contactListChangedEvent.next(this.contacts.slice());
-     })
+
+    const pos = this.contacts.findIndex(d => d.id === contact.id);
+
+    if (pos < 0) {
+      return;
+    }
+
+    // delete from database
+    this.http.delete('http://localhost:3000/customers/' + contact.id)
+      .subscribe(
+        () => {
+          this.contacts.splice(pos, 1);
+          this.contactListChangedEvent.next(this.contacts.slice());
+          // this.sortAndSend();
+        }
+      );
+    }
   }
-}

@@ -50,7 +50,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   onCancel(){
-    this.router.navigate(['contacts']);
+    this.router.navigate(['customers']);
   }
 
   onSubmit(form: NgForm){
@@ -71,7 +71,7 @@ export class ContactEditComponent implements OnInit {
     } else{
       this.contactService.addContact(newContact)
     }
-    this.router.navigate(['contacts']);
+    this.router.navigate(['customers']);
   }
 
   addToGroup($event: any){

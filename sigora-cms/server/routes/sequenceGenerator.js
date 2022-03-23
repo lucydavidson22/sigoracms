@@ -24,7 +24,7 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
   var nextId;
 
   switch (collectionType) {
-    case 'dailydata':
+    case 'documents':
       maxDocumentId++;
       updateObject = {maxDocumentId: maxDocumentId};
       console.log('get the maxId');

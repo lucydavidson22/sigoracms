@@ -17,6 +17,8 @@ export class DocumentService {
   answersperset!: number;
   setsperhour!: number;
 
+  totalKnocks!: number;
+
   constructor(private http: HttpClient) {
     this.getDocumentsHttp();
    }
@@ -40,6 +42,7 @@ export class DocumentService {
            if(a.name < b.name){ return -1; }
            else { return 0; }
           });
+
             let documentsListClone = this.documents.slice();
             this.documentListChangedEvent.next(documentsListClone);
        }
@@ -74,59 +77,6 @@ export class DocumentService {
     console.log("Max document Id",maxId);
     return maxId;
   }
-
-//    storeDocuments(){
-//     const documents = JSON.stringify(this.getDocuments())
-//      this.http
-//      .put(
-//        'https://sigora-stats-default-rtdb.firebaseio.com/knocking.json',
-//      documents,
-//      {
-//       headers: new HttpHeaders({'Content-Type': 'application/json'}),
-//     }
-//      )
-//      .subscribe(()=>{
-//         let documentsListClone = this.documents.slice();
-//         this.documentListChangedEvent.next(documentsListClone);
-//      })
-//    }
-
-//   deleteDocument(document: Document) {
-//     if (!document) {
-//        return;
-//     }
-//     const pos = this.documents.indexOf(document);
-//     if (pos < 0) {
-//        return;
-//     }
-//     this.documents.splice(pos, 1);
-//     this.storeDocuments();
-//  }
-
-//   addDocument(newDocument: Document){
-//     if(!newDocument){
-//       return;
-//     }
-
-//     this.maxDocumentId++;
-//     newDocument.id = this.maxDocumentId + "";
-//     this.documents.push(newDocument);
-//     this.storeDocuments();
-//   }
-
-//   updateDocument(originalDocument: Document, newDocument: Document){
-//     if(!(originalDocument || newDocument)){
-//       return;
-//     }
-//     const pos = this.documents.indexOf(originalDocument);
-//     if(pos < 0){
-//       return;
-//     }
-//     newDocument.id = originalDocument.id;
-//     this.documents[pos] = newDocument;
-//     this.storeDocuments();
-//   }
-
 
 addDocument(document: Document) {
   if (!document) {

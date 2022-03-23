@@ -27,6 +27,7 @@ export class DocumentEditComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
+        console.log(this.id);
         if(!this.id){
           this.editMode = false;
           return;

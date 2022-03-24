@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Commission } from '../commission.model';
 import { CommissionService } from '../commission.service';
 
@@ -34,7 +35,7 @@ export class CommissionInputComponent implements OnInit {
       console.log(value.totalCustomerCost);
       console.log(value.dealerFee);
       console.log(value.adders);
-       let x = this.commissionService.getCommission(commission);
+       let x = this.commissionService.getCommissionEarned(commission);
       console.log(x);
   }
 

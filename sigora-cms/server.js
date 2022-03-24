@@ -12,6 +12,7 @@ let logger = require('morgan');
 let index = require('./server/routes/app');
 const contactsRoutes = require('./server/routes/contacts');
 const documentsRoutes = require('./server/routes/documents');
+const commissionsRoutes = require('./server/routes/commissions');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
@@ -48,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'dist/sigoradb')));
 app.use('/', index);
 app.use('/customers', contactsRoutes);
 app.use('/dailydata', documentsRoutes);
-// app.use('/documents', documentsRoutes);
+app.use('/commissions', commissionsRoutes);
 
 //For 404
 app.use((req, res, next) => {

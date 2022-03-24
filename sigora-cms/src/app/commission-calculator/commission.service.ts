@@ -13,7 +13,7 @@ export class CommissionService {
 
    }
 
-   getCommission(commission: Commission){
+   getCommissionEarned(commission: Commission){
      if(!commission){
        console.log("There was an error")
      }
@@ -24,5 +24,6 @@ export class CommissionService {
     console.log(this.commissionEarned);
     return this.commissionEarned + "";
    }
+
 
 }

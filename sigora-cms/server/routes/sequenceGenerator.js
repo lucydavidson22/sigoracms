@@ -15,6 +15,7 @@ function SequenceGenerator() {
       sequenceId = sequence._id;
       maxDocumentId = sequence.maxDocumentId;
       maxContactId = sequence.maxContactId;
+      maxCommissionId = sequence.maxCommissionId;
     });
 }
 
@@ -35,6 +36,11 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       updateObject = {maxContactId: maxContactId};
       nextId = maxContactId;
       break;
+    case 'commissions':
+      maxCommissionId++;
+        updateObject = {maxCommissionId: maxCommissionId};
+        nextId = maxCommissionId;
+        break;
     default:
       return -1;
   }

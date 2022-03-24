@@ -19,10 +19,10 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
 import { DndModule } from 'ng2-dnd';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
-import { CommissionCalculatorComponent } from './commission-calculator/commission-calculator.component';
+// import { CommissionCalculatorComponent } from './commission-calculator/commission-calculator.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CommissionInputComponent } from './commission-calculator/commission-input/commission-input.component';
-import { CommissionDetailComponent } from './commission-calculator/commission-detail/commission-detail.component';
+// import { CommissionInputComponent } from './commission-calculator/commission-input/commission-input.component';
+// import { CommissionDetailComponent } from './commission-calculator/commission-detail/commission-detail.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { GoalsComponent } from './goals/goals.component';
@@ -35,6 +35,12 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon'
+import { CalcCommissionComponent } from './calculate-commission/calc-commissions.component';
+import { CommissionsListComponent } from './calculate-commission/commission-list/commission-list.component';
+import { CommissionEditComponent } from './calculate-commission/commission-edit/commission-edit.component';
+import { CommissionsItemComponent } from './calculate-commission/commission-item/commission-item.component';
+import { CommissionsDetailComponent } from './calculate-commission/commission-detail/commission-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -53,12 +59,17 @@ import { MatIconModule } from '@angular/material/icon'
     DocumentEditComponent,
     ContactEditComponent,
     ContactsFilterPipe,
-    CommissionCalculatorComponent,
-    CommissionInputComponent,
-    CommissionDetailComponent,
+    // CommissionCalculatorComponent,
+    // CommissionInputComponent,
+    // CommissionDetailComponent,
     LoginComponent,
     SignupComponent,
-    GoalsComponent
+    GoalsComponent,
+    CalcCommissionComponent,
+    CommissionsListComponent,
+    CommissionEditComponent,
+    CommissionsItemComponent,
+    CommissionsDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -69,14 +80,15 @@ import { MatIconModule } from '@angular/material/icon'
     DndModule.forRoot(),
     FlexLayoutModule,
     MatInputModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatExpansionModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule,
-    MatSelectModule,
-    MatIconModule
+    RouterModule
+    // MatCardModule,
+    // MatButtonModule,
+    // MatToolbarModule,
+    // MatExpansionModule,
+    // MatProgressSpinnerModule,
+    // MatPaginatorModule,
+    // MatSelectModule,
+    // MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

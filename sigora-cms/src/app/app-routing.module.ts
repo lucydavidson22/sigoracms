@@ -11,6 +11,9 @@ import { DocumentsComponent } from "./documents/documents.component";
 import { GoalsComponent } from "./goals/goals.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
+import { CalcCommissionComponent } from "./calculate-commission/calc-commissions.component";
+import { CommissionEditComponent } from "./calculate-commission/commission-edit/commission-edit.component";
+import { CommissionsDetailComponent } from "./calculate-commission/commission-detail/commission-detail.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/dailydata', pathMatch: 'full'},
@@ -24,12 +27,17 @@ const appRoutes: Routes = [
     {path: ':id', component: ContactDetailComponent},
     {path: ':id/edit', component: ContactEditComponent}
   ]},
-  {path: 'commissionCalculator', component: CommissionCalculatorComponent, children:[
-    {path: 'commission', component: CommissionDetailComponent}
-  ]},
+  // {path: 'commissionCalculator', component: CommissionCalculatorComponent, children:[
+  //   {path: 'commission', component: CommissionDetailComponent}
+  // ]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'goals', component: GoalsComponent},
+  {path: 'calcCommission', component: CalcCommissionComponent, children: [
+    {path: 'new', component: CommissionEditComponent},
+    {path: ':id', component: CommissionsDetailComponent},
+    {path: ':id/edit', component: CommissionEditComponent}
+  ]}
 
 ];
 

@@ -18,13 +18,14 @@ export class CommissionsDetailComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
         // let parseId = parseInt(this.id);
         this.commission = this.commissionService.getCommission(this.id);
       }
-    )
+    );
   }
 
   onEditCommission(){

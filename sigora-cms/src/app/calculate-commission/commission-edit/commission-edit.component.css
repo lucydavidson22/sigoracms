@@ -5,3 +5,13 @@ input.ng-invalid {
 .alert.alert-danger{
   margin-top: 30px;
 }
+
+.panel{
+  max-width: 450px;
+}
+
+.panel-heading{
+  min-height: 50px;
+  display: inline-block;
+  min-width: 450px;
+}

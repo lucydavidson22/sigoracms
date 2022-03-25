@@ -7,16 +7,30 @@ var mongoose = require('mongoose');
 let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+// var cors = require('cors');
 
 // import the routing file to handle the default (index) route
 let index = require('./server/routes/app');
 const contactsRoutes = require('./server/routes/contacts');
 const documentsRoutes = require('./server/routes/documents');
 const commissionsRoutes = require('./server/routes/commissions');
+// const userRoutes = require('.server/routes/user');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
 let app = express(); // create an instance of express
+
+function requireHTTPS(req, res, next){
+  // The 'x-forwarded-proto' check is for Heroku
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+
+app.use(requireHTTPS);
+app.use(express.static('./dist/sigora-cms'));
+
 
 // Tell express to use the following parsers for POST data
 app.use(bodyParser.json());
@@ -51,6 +65,7 @@ app.use('/customers', contactsRoutes);
 app.use('/dailydata', documentsRoutes);
 app.use('/commissions', commissionsRoutes);
 
+
 //For 404
 app.use((req, res, next) => {
   res.render('index')
@@ -73,8 +88,13 @@ mongoose.connect('mongodb+srv://Lucy:dJNWInbOOVL6lJY2@sigoracluster.xzei0.mongod
 // ... ADD YOUR CODE TO MAP YOUR URL'S TO ROUTING FILES HERE ...
 
 // Tell express to map all other non-defined routes back to the index page
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/cms/index.html'));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/sigora-cms/index.html'));
+// });
+
+app.get('/*', function(req, res) {
+  res.sendFile('index.html', {root: 'dist/sigora-cms/'}
+);
 });
 
 // Define the port address and tell express to use this port
@@ -88,3 +108,5 @@ const server = http.createServer(app);
 server.listen(port, function() {
   console.log('API running on localhost: ' + port)
 });
+
+app.listen(process.env.PORT || 8080);

@@ -109,4 +109,4 @@ server.listen(port, function() {
   console.log('API running on localhost: ' + port)
 });
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080); //this was part of a deployment attempt, delete if error made

@@ -12,6 +12,7 @@ export class CommissionService {
   commissionChangedEvent = new EventEmitter<CalculatedCommission[]>();
   private commissions: CalculatedCommission[] = [];
   maxCommissionId!: number;
+  commissionEarned!: number;
 
   constructor(private http: HttpClient) {
     this.getCommissionsHttp();
@@ -49,6 +50,7 @@ export class CommissionService {
    }
 
    getCommission(id:string){
+     this.getCommissionEarned();
     for(let commission of this.commissions){
       if(id == commission.id){
         return commission;
@@ -137,6 +139,30 @@ export class CommissionService {
           // this.sortAndSend();
         }
       );
+  }
+
+  calculateCommissionEarned():number{
+    this.commissionEarned = 0;
+    for(let commission of this.commissions){
+      let redline = commission?.systemSize * 3000;
+      let dealerFee = (commission?.dealerFee / 100) * commission?.totalCustomerCost;
+      commission.commissionEarned = ((commission?.totalCustomerCost - redline) - dealerFee) - commission?.adders;
+      // console.log("are we getting  commission?");
+      // console.log(this.commissionEarned);
+    }
+    return this.commissionEarned;
+  }
+
+  getCommissionEarned():number{
+    this.commissionEarned = 0;
+    for(let commission of this.commissions){
+      if(commission.systemSize > 0){
+      commission.commissionEarned = this.calculateCommissionEarned();
+      }else {
+        commission.commissionEarned = 0;
+      }
+    }
+    return this.commissionEarned;
   }
 
 }

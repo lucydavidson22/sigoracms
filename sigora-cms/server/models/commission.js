@@ -5,8 +5,7 @@ const commissionSchema = mongoose.Schema({
    systemSize: { type: Number },
    totalCustomerCost: { type: Number },
    dealerFee: { type: Number },
-   adders: { type: Number },
-   commissionEarned: { type: Number }
+   adders: { type: Number }
 });
 
 module.exports = mongoose.model('Commission', commissionSchema);

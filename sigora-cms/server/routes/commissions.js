@@ -26,7 +26,8 @@ router.post('/', (req, res, next) => {
     systemSize: req.body.systemSize,
     totalCustomerCost: req.body.totalCustomerCost,
     dealerFee: req.body.dealerFee,
-    adders: req.body.adders
+    adders: req.body.adders,
+    commissionEarned: req.body.commissionEarned
   });
 
   commission.save()

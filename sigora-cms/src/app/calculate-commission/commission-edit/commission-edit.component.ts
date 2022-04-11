@@ -59,7 +59,6 @@ export class CommissionEditComponent implements OnInit, OnDestroy {
       this.commissionService.addCommission(newCommission)
     }
     this.router.navigate(['calcCommission']);
-    // this.router.navigate(['calcCommission']);
   }
 
   ngOnDestroy(): void {

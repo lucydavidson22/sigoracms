@@ -73,7 +73,9 @@ app.use((req, res, next) => {
 
 
 // establish a connection to the mongo database
-mongoose.connect('mongodb+srv://Lucy:dJNWInbOOVL6lJY2@sigoracluster.xzei0.mongodb.net/sigoradb?retryWrites=true&w=majority',
+// mongoose.connect('mongodb+srv://Lucy:dJNWInbOOVL6lJY2@sigoracluster.xzei0.mongodb.net/sigoradb?retryWrites=true&w=majority',
+// mongoose.connect('mongodb+srv://Lucy:BarryTheLongneck22*@sigoracluster.xzei0.mongodb.net/test',
+mongoose.connect('mongodb+srv://Lucy:BarryTheLongneck22*@sigoracluster.xzei0.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true }, (err, res) => {
     if (err) {
       console.log('Connection failed: ' + err);

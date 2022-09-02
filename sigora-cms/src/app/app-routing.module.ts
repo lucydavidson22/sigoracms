@@ -1,19 +1,19 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { CommissionCalculatorComponent } from "./commission-calculator/commission-calculator.component";
-import { CommissionDetailComponent } from "./commission-calculator/commission-detail/commission-detail.component";
 import { ContactDetailComponent } from "./contacts/contact-detail/contact-detail.component";
 import { ContactEditComponent } from "./contacts/contact-edit/contact-edit.component";
 import { ContactsComponent } from "./contacts/contacts.component";
 import { DocumentEditComponent } from "./documents/document-edit/document-edit.component";
 import { DocumentsDetailComponent } from "./documents/documents-detail/documents-detail.component";
 import { DocumentsComponent } from "./documents/documents.component";
-import { GoalsComponent } from "./goals/goals.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { CalcCommissionComponent } from "./calculate-commission/calc-commissions.component";
 import { CommissionEditComponent } from "./calculate-commission/commission-edit/commission-edit.component";
 import { CommissionsDetailComponent } from "./calculate-commission/commission-detail/commission-detail.component";
+import { GoalsComponent } from "./goals/goals.component";
+import { GoalsEditComponent } from "./goals/goals-edit/goals-edit.component";
+import { GoalsDetailComponent } from "./goals/goals-detail/goals-detail.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/dailydata', pathMatch: 'full'},
@@ -27,12 +27,13 @@ const appRoutes: Routes = [
     {path: ':id', component: ContactDetailComponent},
     {path: ':id/edit', component: ContactEditComponent}
   ]},
-  // {path: 'commissionCalculator', component: CommissionCalculatorComponent, children:[
-  //   {path: 'commission', component: CommissionDetailComponent}
-  // ]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'goals', component: GoalsComponent},
+  {path: 'goals', component: GoalsComponent, children: [
+    {path: 'new', component: GoalsEditComponent},
+    {path: ':id', component: GoalsDetailComponent},
+    {path: ':id/edit', component: GoalsEditComponent}
+  ]},
   {path: 'calcCommission', component: CalcCommissionComponent, children: [
     {path: 'new', component: CommissionEditComponent},
     {path: ':id', component: CommissionsDetailComponent},

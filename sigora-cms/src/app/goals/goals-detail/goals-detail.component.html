@@ -1,0 +1,31 @@
+<!-- <p>goals-detail works!</p> -->
+<div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+<!-- <div *ngIf="goal?.startDate" class="panel panel-default" xmlns="http://www.w3.org/1999/html"> -->
+  <div class="panel-heading">
+    <div class="row pad-all">
+      <h4 class="title margin-left-right">${{goal?.comGoal}}</h4>
+      <div class="row pull-right margin-left-right">
+        <!-- <a (click)="onView()" class="btn btn-primary">View</a> -->
+        <a [routerLink]="['edit']" class="btn btn-info" >Edit</a>
+        <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="pad-left-right">
+      <div class="row">
+        <label>Start Date:</label>
+        <span class="label-value"> {{goal?.startDate}}</span>
+      </div>
+      <div class="row">
+        <label>End Date:</label>
+        <span class="label-value"> {{goal?.endDate}}</span>
+      </div>
+      <div class="row">
+        <label>Commission Goal: </label>
+        <span class="label-value"> ${{ goal?.comGoal }} </span>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -14,8 +14,7 @@ export class DocumentsDetailComponent implements OnInit {
 
   constructor(private documentService: DocumentService,
               private route: ActivatedRoute,
-              private router: Router) {
-               }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(

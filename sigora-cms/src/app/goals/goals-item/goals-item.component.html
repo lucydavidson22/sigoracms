@@ -1,0 +1,10 @@
+<!-- <p>goals-item works!</p> -->
+<a style="cursor: pointer;"
+  [routerLink]="[goal.id]"
+  class="list-group-item clearfix documentDiv"
+  routerLinkActive="active">
+    <!-- {{ goal?.startDate | date: 'MM/dd/YYYY' }} -->
+    <span>${{ goal?.comGoal }}</span>
+    <span> {{ goal?.startDate }}</span>---
+    <span> {{ goal?.endDate }}</span>
+</a>

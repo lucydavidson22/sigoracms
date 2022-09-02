@@ -2,6 +2,8 @@ var Sequence = require('../models/sequence');
 
 var maxDocumentId;
 var maxContactId;
+var maxCommissionId;
+var maxGoalId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -16,6 +18,7 @@ function SequenceGenerator() {
       maxDocumentId = sequence.maxDocumentId;
       maxContactId = sequence.maxContactId;
       maxCommissionId = sequence.maxCommissionId;
+      maxGoalId = sequence.maxGoalId;
     });
 }
 
@@ -38,9 +41,15 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       break;
     case 'commissions':
       maxCommissionId++;
-        updateObject = {maxCommissionId: maxCommissionId};
-        nextId = maxCommissionId;
-        break;
+      updateObject = {maxCommissionId: maxCommissionId};
+      nextId = maxCommissionId;
+      break;
+    case 'goals':
+      maxGoalId++;
+      updateObject = {maxGoalId: maxGoalId};
+      console.log('get the maxGoalId', maxGoalId);
+      nextId = maxGoalId;
+      break;
     default:
       return -1;
   }

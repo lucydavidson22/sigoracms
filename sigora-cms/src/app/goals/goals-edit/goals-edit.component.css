@@ -1,0 +1,14 @@
+h3{
+  display: inline-block;
+  margin: 2px;
+}
+
+.panel{
+  max-width: 350px;
+}
+
+.panel-heading{
+  min-height: 50px;
+  display: inline-block;
+  min-width: 350px;
+}

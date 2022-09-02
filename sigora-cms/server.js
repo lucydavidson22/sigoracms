@@ -14,22 +14,23 @@ let index = require('./server/routes/app');
 const contactsRoutes = require('./server/routes/contacts');
 const documentsRoutes = require('./server/routes/documents');
 const commissionsRoutes = require('./server/routes/commissions');
+const goalsRoutes = require('./server/routes/goals')
 // const userRoutes = require('.server/routes/user');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
 let app = express(); // create an instance of express
 
-function requireHTTPS(req, res, next){
+// function requireHTTPS(req, res, next){
   // The 'x-forwarded-proto' check is for Heroku
-  if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-    return res.redirect('https://' + req.get('host') + req.url);
-  }
-  next();
-}
+//   if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+//     return res.redirect('https://' + req.get('host') + req.url);
+//   }
+//   next();
+// }
 
-app.use(requireHTTPS);
-app.use(express.static('./dist/sigora-cms'));
+// app.use(requireHTTPS);
+// app.use(express.static('./dist/sigora-cms'));
 
 
 // Tell express to use the following parsers for POST data
@@ -64,6 +65,7 @@ app.use('/', index);
 app.use('/customers', contactsRoutes);
 app.use('/dailydata', documentsRoutes);
 app.use('/commissions', commissionsRoutes);
+app.use('/goals', goalsRoutes)
 
 
 //For 404
@@ -73,9 +75,8 @@ app.use((req, res, next) => {
 
 
 // establish a connection to the mongo database
-// mongoose.connect('mongodb+srv://Lucy:dJNWInbOOVL6lJY2@sigoracluster.xzei0.mongodb.net/sigoradb?retryWrites=true&w=majority',
-// mongoose.connect('mongodb+srv://Lucy:BarryTheLongneck22*@sigoracluster.xzei0.mongodb.net/test',
-mongoose.connect('mongodb+srv://Lucy:BarryTheLongneck22*@sigoracluster.xzei0.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://Lucy:p0LuAXl8M65iq2tE@sigoracluster.xzei0.mongodb.net/sigoradb?retryWrites=true&w=majority',
+// mongoose.connect('mongodb+srv://Lucy:BarryTheLongneck22*@sigoracluster.xzei0.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true }, (err, res) => {
     if (err) {
       console.log('Connection failed: ' + err);
@@ -95,7 +96,7 @@ mongoose.connect('mongodb+srv://Lucy:BarryTheLongneck22*@sigoracluster.xzei0.mon
 // });
 
 app.get('/*', function(req, res) {
-  res.sendFile('index.html', {root: 'dist/sigora-cms/'}
+  res.sendFile('index.html', {root: 'dist/sigora-cms/index.html'}
 );
 });
 

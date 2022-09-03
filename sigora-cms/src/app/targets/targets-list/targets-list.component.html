@@ -1,0 +1,16 @@
+<!-- <p>targets-list works!</p> -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <span class="pull-left title">Goals</span>
+      <a [routerLink]="['new']" class="btn btn-success pull-right">Add Goal</a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="center-panel">
+      <cms-targets-item
+      *ngFor="let target of targets;"
+      [target]="target"></cms-targets-item>
+    </div>
+  </div>
+</div>

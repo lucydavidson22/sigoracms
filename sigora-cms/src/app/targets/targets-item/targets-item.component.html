@@ -1,0 +1,11 @@
+<!-- <p>targets-item works!</p> -->
+<a style="cursor: pointer;"
+  [routerLink]="[target.id]"
+  class="list-group-item clearfix documentDiv"
+  routerLinkActive="active">
+  {{ target?.commissGoal | currency }}
+    <span class="pull-right">
+      {{ target?.startDate | date: 'MM/dd/YYYY'}} --
+      {{ target?.endDate | date: 'MM/dd/YYYY'}}
+    </span>
+</a>

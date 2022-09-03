@@ -1,0 +1,30 @@
+<!-- <p>targets-detail works!</p> -->
+<div *ngIf="target?.startDate" class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+  <div class="panel-heading">
+    <div class="row pad-all">
+      <h4 class="title margin-left-right">Goal</h4>
+      <div class="row pull-right margin-left-right">
+        <!-- <a (click)="onView()" class="btn btn-primary">View</a> -->
+        <!-- <a [routerLink]="['edit']" class="btn btn-info" >Edit</a> -->
+        <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="pad-left-right">
+      <div class="row">
+        <label>Start:</label>
+        <span class="label-value"> {{target?.startDate | date: 'MM/dd/YYYY' }}</span>
+      </div>
+      <div class="row">
+        <label>End:</label>
+        <span class="label-value"> {{target?.endDate | date: 'MM/dd/YYYY' }}</span>
+      </div>
+      <div class="row">
+        <label>Goal:</label>
+        <span class="label-value"> {{ target?.commissGoal | currency}} </span>
+      </div>
+
+    </div>
+  </div>
+</div>

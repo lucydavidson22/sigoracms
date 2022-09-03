@@ -33,6 +33,11 @@ import { GoalsListComponent } from './goals/goals-list/goals-list.component';
 import { GoalsItemComponent } from './goals/goals-item/goals-item.component';
 import { GoalsDetailComponent } from './goals/goals-detail/goals-detail.component';
 import { GoalsEditComponent } from './goals/goals-edit/goals-edit.component';
+import { TargetsComponent } from './targets/targets.component';
+import { TargetEditComponent } from './targets/target-edit/target-edit.component';
+import { TargetsDetailComponent } from './targets/targets-detail/targets-detail.component';
+import { TargetsItemComponent } from './targets/targets-item/targets-item.component';
+import { TargetsListComponent } from './targets/targets-list/targets-list.component';
 
 
 @NgModule({
@@ -62,7 +67,12 @@ import { GoalsEditComponent } from './goals/goals-edit/goals-edit.component';
     GoalsListComponent,
     GoalsItemComponent,
     GoalsDetailComponent,
-    GoalsEditComponent
+    GoalsEditComponent,
+    TargetsComponent,
+    TargetEditComponent,
+    TargetsDetailComponent,
+    TargetsItemComponent,
+    TargetsListComponent
   ],
   imports: [
     BrowserModule,

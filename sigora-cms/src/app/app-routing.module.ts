@@ -14,6 +14,9 @@ import { CommissionsDetailComponent } from "./calculate-commission/commission-de
 import { GoalsComponent } from "./goals/goals.component";
 import { GoalsEditComponent } from "./goals/goals-edit/goals-edit.component";
 import { GoalsDetailComponent } from "./goals/goals-detail/goals-detail.component";
+import { TargetsComponent } from "./targets/targets.component";
+import { TargetsDetailComponent } from "./targets/targets-detail/targets-detail.component";
+import { TargetEditComponent } from "./targets/target-edit/target-edit.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/dailydata', pathMatch: 'full'},
@@ -29,11 +32,16 @@ const appRoutes: Routes = [
   ]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'goals', component: GoalsComponent, children: [
-    {path: 'new', component: GoalsEditComponent},
-    {path: ':id', component: GoalsDetailComponent},
-    {path: ':id/edit', component: GoalsEditComponent}
+  {path: 'targets', component: TargetsComponent, children: [
+    {path: 'new', component: TargetEditComponent},
+    {path: ':id', component: TargetsDetailComponent},
+    {path: ':id/edit', component: TargetEditComponent}
   ]},
+  // {path: 'goals', component: GoalsComponent, children: [
+  //   {path: 'new', component: GoalsEditComponent},
+  //   {path: ':id', component: GoalsDetailComponent},
+  //   {path: ':id/edit', component: GoalsEditComponent}
+  // ]},
   {path: 'calcCommission', component: CalcCommissionComponent, children: [
     {path: 'new', component: CommissionEditComponent},
     {path: ':id', component: CommissionsDetailComponent},

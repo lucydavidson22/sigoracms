@@ -12,11 +12,11 @@ export class DocumentService {
   documentChangedEvent = new EventEmitter<Document[]>();
   private documents: Document[] = [];
   maxDocumentId!: number;
+
   knocksperanswer!: number;
   knocksperhour!:number;
   answersperset!: number;
   setsperhour!: number;
-
   totalKnocks!: number;
 
   constructor(private http: HttpClient) {
@@ -43,8 +43,8 @@ export class DocumentService {
            else { return 0; }
           });
 
-            let documentsListClone = this.documents.slice();
-            this.documentListChangedEvent.next(documentsListClone);
+        let documentsListClone = this.documents.slice();
+        this.documentListChangedEvent.next(documentsListClone);
        }
        //error method
        ,(error: any)=> {

@@ -14,7 +14,8 @@ let index = require('./server/routes/app');
 const contactsRoutes = require('./server/routes/contacts');
 const documentsRoutes = require('./server/routes/documents');
 const commissionsRoutes = require('./server/routes/commissions');
-const goalsRoutes = require('./server/routes/goals')
+// const goalsRoutes = require('./server/routes/goals')
+const targetsRoutes = require('./server/routes/targets')
 // const userRoutes = require('.server/routes/user');
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
@@ -65,7 +66,8 @@ app.use('/', index);
 app.use('/customers', contactsRoutes);
 app.use('/dailydata', documentsRoutes);
 app.use('/commissions', commissionsRoutes);
-app.use('/goals', goalsRoutes)
+// app.use('/goals', goalsRoutes)
+app.use('/targets', targetsRoutes)
 
 
 //For 404

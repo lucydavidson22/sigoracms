@@ -4,7 +4,6 @@ var maxDocumentId;
 var maxContactId;
 var maxCommissionId;
 var maxTargetId;
-// var maxGoalId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -46,10 +45,8 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       nextId = maxCommissionId;
       break;
     case 'targets':
-      +maxTargetId++;
-      console.log('maxId', maxTargetId);
+      maxTargetId++;
       updateObject = {maxTargetId: maxTargetId};
-      console.log('get the maxTargetId', maxTargetId);
       nextId = maxTargetId;
       break;
     default:

@@ -14,7 +14,6 @@ let index = require('./server/routes/app');
 const contactsRoutes = require('./server/routes/contacts');
 const documentsRoutes = require('./server/routes/documents');
 const commissionsRoutes = require('./server/routes/commissions');
-// const goalsRoutes = require('./server/routes/goals')
 const targetsRoutes = require('./server/routes/targets')
 // const userRoutes = require('.server/routes/user');
 
@@ -58,7 +57,7 @@ app.use((req, res, next) => {
 });
 
 // Tell express to use the specified director as the
-// root directory for your web site
+// root directory for web site
 app.use(express.static(path.join(__dirname, 'dist/sigoradb')));
 
 // Tell express to map the default route ('/') to the index route
@@ -66,8 +65,7 @@ app.use('/', index);
 app.use('/customers', contactsRoutes);
 app.use('/dailydata', documentsRoutes);
 app.use('/commissions', commissionsRoutes);
-// app.use('/goals', goalsRoutes)
-app.use('/targets', targetsRoutes)
+app.use('/targets', targetsRoutes);
 
 
 //For 404

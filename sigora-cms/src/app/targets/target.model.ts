@@ -3,6 +3,6 @@ export class Target{
     public id:string,
     public startDate:string,
     public endDate:string,
-    public commissGoal: string
+    public commissGoal: number
   ){}
 }

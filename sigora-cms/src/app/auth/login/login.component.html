@@ -20,13 +20,11 @@
 
       <div class="row">
         <div class="col-xs-12 btn-toolbar">
-          <button class="btn btn-success" type="submit">Save</button>
+          <span class="pull-left btn btn-toolbar" [routerLink]="['/signup']">No account? Sign Up Here</span>
           <div class="row pad-left-right">
-            <span class="pull-right">No account?
             <ul class="pull-right">
-              <button class="btn btn-primary" [routerLink]="['/signup']">Signup</button>
+              <button class="btn btn-primary" [routerLink]="['/login']">Login</button>
           </ul>
-        </span>
           </div>
         </div>
       </div>
